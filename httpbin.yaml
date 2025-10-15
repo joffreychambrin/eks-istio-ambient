@@ -58,13 +58,6 @@ spec:
         name: httpbin
         ports:
         - containerPort: 8080
-        lifecycle:
-          preStop:
-            exec:
-              command:
-              - /bin/bash
-              - -c
-              - sleep 15
         startupProbe:
           httpGet:
             path: /
