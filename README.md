@@ -27,3 +27,8 @@ kubectl rollout restart deploy httpbin
 # Then, wait 20 seconds
 kubectl exec -it curl-74c989df8d-vdjgs -- curl http://httpbin:8000/dump/request
 ```
+
+Timeline
+1. Container started at: "lastTimestamp": "2025-10-15T03:29:49Z"
+2. Kube probe OK at 2025-10-15T03:29:52Z
+3. curl 503 error at 2025-10-15T03:30:00Z
