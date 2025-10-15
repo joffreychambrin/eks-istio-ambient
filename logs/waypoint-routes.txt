@@ -1,0 +1,7 @@
+NAME                                                        VHOST NAME            DOMAINS     MATCH                  VIRTUAL SERVICE
+encap                                                       inbound|http|0        *           /*
+                                                            backend               *           /healthz/ready*
+                                                            backend               *           /stats/prometheus*
+default                                                     default               *
+inbound-vip|8000|http|httpbin.staging.svc.cluster.local     inbound|http|8000     *           /*
+inbound-vip|80|http|curl.staging.svc.cluster.local          inbound|http|80       *           /*

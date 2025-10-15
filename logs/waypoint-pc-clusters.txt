@@ -1,0 +1,10 @@
+SERVICE FQDN                          PORT     SUBSET     DIRECTION       TYPE             DESTINATION RULE
+agent                                 -        -          -               STATIC
+connect_originate                     -        -          -               ORIGINAL_DST
+curl.staging.svc.cluster.local        80       http       inbound-vip     EDS
+encap                                 -        -          -               STATIC
+httpbin.staging.svc.cluster.local     8000     http       inbound-vip     EDS
+main_internal                         -        -          -               STATIC
+prometheus_stats                      -        -          -               STATIC
+sds-grpc                              -        -          -               STATIC
+xds-grpc                              -        -          -               STATIC

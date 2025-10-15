@@ -1,0 +1,12 @@
+ENDPOINT                                                STATUS      OUTLIER CHECK     CLUSTER
+127.0.0.1:15000                                         HEALTHY     OK                prometheus_stats
+127.0.0.1:15020                                         HEALTHY     OK                agent
+192.168.75.251:15008                                    HEALTHY     OK                connect_originate
+192.168.94.209:15008                                    HEALTHY     OK                connect_originate
+192.168.94.32:15008                                     HEALTHY     OK                connect_originate
+envoy://connect_originate/                              HEALTHY     OK                encap
+envoy://connect_originate/192.168.77.83:8080            HEALTHY     OK                inbound-vip|8000|http|httpbin.staging.svc.cluster.local
+envoy://connect_originate/192.168.89.141:80             HEALTHY     OK                inbound-vip|80|http|curl.staging.svc.cluster.local
+envoy://main_internal/                                  HEALTHY     OK                main_internal
+unix://./etc/istio/proxy/XDS                            HEALTHY     OK                xds-grpc
+unix://./var/run/secrets/workload-spiffe-uds/socket     HEALTHY     OK                sds-grpc

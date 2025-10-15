@@ -1,0 +1,71 @@
+2025-10-15T03:27:48.140350Z	info	FLAG: --concurrency="0"
+2025-10-15T03:27:48.140474Z	info	FLAG: --domain="staging.svc.cluster.local"
+2025-10-15T03:27:48.140552Z	info	FLAG: --help="false"
+2025-10-15T03:27:48.140627Z	info	FLAG: --log_as_json="false"
+2025-10-15T03:27:48.140636Z	info	FLAG: --log_caller=""
+2025-10-15T03:27:48.140640Z	info	FLAG: --log_output_level="default:info"
+2025-10-15T03:27:48.140643Z	info	FLAG: --log_stacktrace_level="default:none"
+2025-10-15T03:27:48.140657Z	info	FLAG: --log_target="[stdout]"
+2025-10-15T03:27:48.140664Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2025-10-15T03:27:48.140668Z	info	FLAG: --outlierLogPath=""
+2025-10-15T03:27:48.140671Z	info	FLAG: --profiling="true"
+2025-10-15T03:27:48.140674Z	info	FLAG: --proxyComponentLogLevel="misc:error"
+2025-10-15T03:27:48.140677Z	info	FLAG: --proxyLogLevel="warning"
+2025-10-15T03:27:48.140680Z	info	FLAG: --serviceCluster="waypoint.staging"
+2025-10-15T03:27:48.140683Z	info	FLAG: --stsPort="0"
+2025-10-15T03:27:48.140686Z	info	FLAG: --templateFile=""
+2025-10-15T03:27:48.140690Z	info	FLAG: --tokenManagerPlugin=""
+2025-10-15T03:27:48.140695Z	info	FLAG: --vklog="0"
+2025-10-15T03:27:48.140699Z	info	Version 1.27.0-7359d8be2504f2b191f7d94156af08e6590d2d1c-Clean
+2025-10-15T03:27:48.140870Z	info	Proxy role	ips=[192.168.80.81] type=waypoint id=waypoint-8669cb56f-85wj6.staging domain=staging.svc.cluster.local
+2025-10-15T03:27:48.140932Z	info	Apply proxy config from env {"proxyMetadata":{"ISTIO_META_ENABLE_HBONE":"true"},"image":{"imageType":"distroless"}}
+
+2025-10-15T03:27:48.142207Z	info	cpu limit detected as 2, setting concurrency
+2025-10-15T03:27:48.142465Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+concurrency: 2
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+image:
+  imageType: distroless
+proxyAdminPort: 15000
+proxyMetadata:
+  ISTIO_META_ENABLE_HBONE: "true"
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+
+2025-10-15T03:27:48.142479Z	info	JWT policy is third-party-jwt
+2025-10-15T03:27:48.142483Z	info	using credential fetcher of JWT type in cluster.local trust domain
+2025-10-15T03:27:48.144944Z	info	platform detected is AWS
+2025-10-15T03:27:48.148681Z	info	Starting default Istio SDS Server
+2025-10-15T03:27:48.148702Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2025-10-15T03:27:48.148724Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2025-10-15T03:27:48.148769Z	info	Opening status port 15020
+2025-10-15T03:27:48.151446Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "Kubernetes"
+2025-10-15T03:27:48.153124Z	info	Pilot SAN: [istiod.istio-system.svc]
+2025-10-15T03:27:48.154372Z	info	Starting proxy agent
+2025-10-15T03:27:48.154464Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --allow-unknown-static-fields -l warning --component-log-level misc:error --skip-deprecated-logs --concurrency 2]
+2025-10-15T03:27:48.161897Z	info	sds	Starting SDS grpc server
+2025-10-15T03:27:48.161917Z	info	sds	Starting SDS server for workload certificates, will listen on "var/run/secrets/workload-spiffe-uds/socket"
+2025-10-15T03:27:48.251926Z	warning	envoy main external/envoy/source/server/server.cc:905	Usage of the deprecated runtime key overload.global_downstream_max_connections, consider switching to `envoy.resource_monitors.global_downstream_max_connections` instead.This runtime key will be removed in future.	thread=16
+2025-10-15T03:27:48.253763Z	warning	envoy main external/envoy/source/server/server.cc:1001	There is no configured limit to the number of allowed active downstream connections. Configure a limit in `envoy.resource_monitors.global_downstream_max_connections` resource monitor.	thread=16
+2025-10-15T03:27:48.262663Z	info	xdsproxy	connected to delta upstream XDS server: istiod.istio-system.svc:15012	id=1
+2025-10-15T03:27:48.279326Z	info	ads	ADS: new connection for node:1
+2025-10-15T03:27:48.281754Z	info	ads	ADS: new connection for node:2
+2025-10-15T03:27:48.696366Z	info	cache	generated new workload certificate	resourceName=default latency=544.48815ms ttl=23h59m59.303637982s
+2025-10-15T03:27:48.696408Z	info	cache	Root cert has changed, start rotating root cert
+2025-10-15T03:27:48.696505Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.30349677s
+2025-10-15T03:27:48.696534Z	info	cache	returned workload certificate from cache	ttl=23h59m59.303469401s
+2025-10-15T03:27:48.696711Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.303291468s
+2025-10-15T03:27:48.697391Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.302611394s
+2025-10-15T03:27:49.007559Z	info	Readiness succeeded in 874.47406ms
+2025-10-15T03:27:49.007923Z	info	Envoy proxy is ready
+[2025-10-15T03:29:01.876Z] "GET /dump/request HTTP/1.1" 200 - via_upstream - "-" 0 165 3 2 "-" "curl/8.16.0" "4a8b27af-3f37-4e07-b7d1-5ea877b6357c" "httpbin:8000" "envoy://connect_originate/192.168.77.83:8080" inbound-vip|8000|http|httpbin.staging.svc.cluster.local envoy://internal_client_address/ 10.100.194.43:8000 192.168.89.141:60386 - default
+[2025-10-15T03:29:21.213Z] "GET /dump/request HTTP/1.1" 200 - via_upstream - "-" 0 165 2 2 "-" "curl/8.16.0" "1a1a88ed-2506-4166-a7df-8f87da147818" "httpbin:8000" "envoy://connect_originate/192.168.94.209:8080" inbound-vip|8000|http|httpbin.staging.svc.cluster.local envoy://internal_client_address/ 10.100.194.43:8000 192.168.89.141:60386 - default
+[2025-10-15T03:29:33.760Z] "GET /dump/request HTTP/1.1" 200 - via_upstream - "-" 0 165 4 4 "-" "curl/8.16.0" "9cfa5ec2-c8f8-4d2f-849f-56006c10b739" "httpbin:8000" "envoy://connect_originate/192.168.75.251:8080" inbound-vip|8000|http|httpbin.staging.svc.cluster.local envoy://internal_client_address/ 10.100.194.43:8000 192.168.89.141:60386 - default
+[2025-10-15T03:29:45.193Z] "GET /dump/request HTTP/1.1" 200 - via_upstream - "-" 0 165 3 2 "-" "curl/8.16.0" "dcdf9c16-463e-4e27-965f-52e7ce8aa1f0" "httpbin:8000" "envoy://connect_originate/192.168.94.32:8080" inbound-vip|8000|http|httpbin.staging.svc.cluster.local envoy://internal_client_address/ 10.100.194.43:8000 192.168.89.141:60386 - default
+[2025-10-15T03:29:59.862Z] "GET /dump/request HTTP/1.1" 503 UC upstream_reset_before_response_started{connection_termination} - "-" 0 95 0 - "-" "curl/8.16.0" "1090466c-bca2-4973-b7d0-c4efbf8ef79d" "httpbin:8000" "envoy://connect_originate/192.168.77.83:8080" inbound-vip|8000|http|httpbin.staging.svc.cluster.local envoy://internal_client_address/ 10.100.194.43:8000 192.168.89.141:60386 - default
+[2025-10-15T03:29:59.863Z] "- - -" 0 UF,URX - - "-" 0 0 3 - "-" "-" "-" "-" "192.168.77.83:15008" connect_originate - 192.168.77.83:8080 envoy://internal_client_address/ - -

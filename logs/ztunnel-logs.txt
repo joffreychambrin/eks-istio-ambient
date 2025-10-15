@@ -1,0 +1,363 @@
+proxyWorkloadInformation: null
+clusterId: Kubernetes
+clusterDomain: cluster.local
+caAddress: https://istiod.istio-system.svc:15012
+caRootCert: !File ./var/run/secrets/istio/root-cert.pem
+altCaHostname: null
+xdsAddress: https://istiod.istio-system.svc:15012
+xdsRootCert: !File ./var/run/secrets/istio/root-cert.pem
+altXdsHostname: null
+preferedServiceNamespace: null
+secretTtl:
+  secs: 86400
+  nanos: 0
+xdsOnDemand: false
+fakeCa: false
+fakeSelfInbound: false
+selfTerminationDeadline:
+  secs: 25
+  nanos: 0
+proxyMetadata:
+  CLUSTER_ID: Kubernetes
+  ENABLE_HBONE: 'true'
+  ISTIO_VERSION: 1.27.0
+numWorkerThreads: 2
+requireOriginalSource: null
+proxyArgs: proxy ztunnel
+dnsResolverCfg:
+  domain: null
+  search:
+  - istio-system.svc.cluster.local
+  - svc.cluster.local
+  - cluster.local
+  - eu-central-1.compute.internal
+  name_servers:
+  - socket_addr: 10.100.0.10:53
+    protocol: udp
+    tls_dns_name: null
+    http_endpoint: null
+    trust_negative_responses: false
+    bind_addr: null
+  - socket_addr: 10.100.0.10:53
+    protocol: tcp
+    tls_dns_name: null
+    http_endpoint: null
+    trust_negative_responses: false
+    bind_addr: null
+dnsResolverOpts:
+  ndots: 5
+  timeout:
+    secs: 5
+    nanos: 0
+  attempts: 2
+  check_names: true
+  edns0: false
+  validate: false
+  ip_strategy: Ipv4AndIpv6
+  cache_size: 4096
+  use_hosts_file: Auto
+  positive_min_ttl: null
+  negative_min_ttl: null
+  positive_max_ttl: null
+  negative_max_ttl: null
+  num_concurrent_reqs: 2
+  preserve_intermediates: true
+  try_tcp_on_error: false
+  server_ordering_strategy: QueryStatistics
+  recursion_desired: true
+  avoid_local_udp_ports: []
+  os_port_selection: false
+  case_randomization: false
+  trust_anchor: null
+inpodUds: /var/run/ztunnel/ztunnel.sock
+inpodPortReuse: true
+packetMark: 1337
+socketConfig:
+  keepaliveTime:
+    secs: 180
+    nanos: 0
+  keepaliveInterval:
+    secs: 180
+    nanos: 0
+  keepaliveRetries: 9
+  keepaliveEnabled: true
+  userTimeoutEnabled: false
+xdsHeaders: []
+caHeaders: []
+localhostAppTunnel: true
+ztunnelIdentity: spiffe://cluster.local/ns/istio-system/sa/ztunnel
+ztunnelWorkload:
+  name: ztunnel-4gft5
+  namespace: istio-system
+  serviceAccount: ztunnel
+ipv6Enabled: true
+
+2025-10-15T03:27:34.971033Z	info	hyper_util	listener established	address=[::]:15021 component="readiness"
+2025-10-15T03:27:34.971244Z	info	app	shared proxy mode - in-pod mode enabled
+2025-10-15T03:27:34.971255Z	info	proxyfactory	creating ztunnel self-proxy listener with identity: Spiffe { trust_domain: "cluster.local", namespace: "istio-system", service_account: "ztunnel" }
+2025-10-15T03:27:34.971295Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:27:34.971383Z	info	hyper_util	listener established	address=127.0.0.1:15000 component="admin"
+2025-10-15T03:27:34.971429Z	info	hyper_util	listener established	address=[::]:15020 component="stats"
+2025-10-15T03:27:34.971446Z	info	readiness	Task 'dns proxy' complete (2.538794ms), still awaiting 3 tasks
+2025-10-15T03:27:34.971450Z	info	readiness	Task 'proxy' complete (2.54316ms), still awaiting 2 tasks
+2025-10-15T03:27:34.972072Z	info	app	Starting ztunnel inbound listener task
+2025-10-15T03:27:34.987853Z	info	xds::client:xds{id=1}	Stream established
+2025-10-15T03:27:34.987912Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=19 removes=0
+2025-10-15T03:27:34.988131Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.security.Authorization" size=0 removes=0
+2025-10-15T03:27:34.988182Z	info	readiness	Task 'state manager' complete (19.274357ms), still awaiting 1 tasks
+2025-10-15T03:27:34.988325Z	info	inpod::workloadmanager	handling new stream
+2025-10-15T03:27:34.989042Z	info	inpod::statemanager	received snapshot sent
+2025-10-15T03:27:34.989110Z	info	readiness	Task 'workload proxy manager' complete (20.202376ms), marking server ready
+2025-10-15T03:27:35.572063Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:35.826760Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.security.Authorization" size=0 removes=0
+2025-10-15T03:27:35.927681Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:37.012518Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.security.Authorization" size=0 removes=0
+2025-10-15T03:27:43.673558Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:48.937774Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:49.945706Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:28:19.113597Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:28:19.686581Z	info	inpod::statemanager	pod received, starting proxy	uid="c0227b86-121f-483a-9894-9c9fb37fe376" name="httpbin-5bb94fc78f-2tzvk" namespace="staging"
+2025-10-15T03:28:19.686877Z	info	dns::server	starting local DNS server	address=localhost:15053 component="dns"
+2025-10-15T03:28:19.687232Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:28:19.687385Z	info	proxy::inbound_passthrough	listener established	address=[::]:15006 component="inbound plaintext" transparent=true
+2025-10-15T03:28:19.687484Z	info	proxy::outbound	listener established	address=[::]:15001 component="outbound" transparent=true
+2025-10-15T03:28:20.203642Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:28:20.746818Z	info	inpod::statemanager	pod received, starting proxy	uid="0d5ef4f7-79d5-4c2e-b657-baae510aead6" name="curl-74c989df8d-vdjgs" namespace="staging"
+2025-10-15T03:28:20.746984Z	info	dns::server	starting local DNS server	address=localhost:15053 component="dns"
+2025-10-15T03:28:20.747128Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:28:20.747156Z	info	proxy::inbound_passthrough	listener established	address=[::]:15006 component="inbound plaintext" transparent=true
+2025-10-15T03:28:20.747180Z	info	proxy::outbound	listener established	address=[::]:15001 component="outbound" transparent=true
+2025-10-15T03:28:24.123212Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:28:26.010088Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:01.884870Z	info	access	connection complete	src.addr=192.168.89.141:43632 src.workload="curl-74c989df8d-vdjgs" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/curl" dst.addr=192.168.80.81:15008 dst.hbone_addr=10.100.194.43:8000 dst.service="httpbin.staging.svc.cluster.local" dst.workload="waypoint-8669cb56f-85wj6" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/waypoint" direction="outbound" bytes_sent=88 bytes_recv=481 duration="11ms"
+2025-10-15T03:29:06.880990Z	info	access	connection complete	src.addr=192.168.80.81:33004 src.workload="waypoint-8669cb56f-85wj6" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/waypoint" dst.addr=192.168.77.83:15008 dst.hbone_addr=192.168.77.83:8080 dst.service="httpbin.staging.svc.cluster.local" dst.workload="httpbin-5bb94fc78f-2tzvk" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/httpbin" direction="inbound" bytes_sent=355 bytes_recv=165 duration="5001ms"
+2025-10-15T03:29:09.823322Z	info	inpod::statemanager	pod received, starting proxy	uid="9215c227-647d-43fa-965a-3f5d93ab1666" name="httpbin-7c777794dd-d4whn" namespace="staging"
+2025-10-15T03:29:09.823522Z	info	dns::server	starting local DNS server	address=localhost:15053 component="dns"
+2025-10-15T03:29:09.823695Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:29:09.823724Z	info	proxy::inbound_passthrough	listener established	address=[::]:15006 component="inbound plaintext" transparent=true
+2025-10-15T03:29:09.823745Z	info	proxy::outbound	listener established	address=[::]:15001 component="outbound" transparent=true
+2025-10-15T03:29:11.058225Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:14.132802Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:14.292985Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="c0227b86-121f-483a-9894-9c9fb37fe376"
+2025-10-15T03:29:14.293061Z	info	drain:proxy{wl=staging/httpbin-5bb94fc78f-2tzvk}	shutdown complete	component="inbound passthrough"
+2025-10-15T03:29:14.293105Z	info	drain:proxy{wl=staging/httpbin-5bb94fc78f-2tzvk}	shutdown complete	component="inbound"
+2025-10-15T03:29:14.293233Z	info	dns::server:dns_proxy{wl=staging/httpbin-5bb94fc78f-2tzvk}	shutting down the DNS server
+2025-10-15T03:29:14.293237Z	info	dns::server:dns_proxy{wl=staging/httpbin-5bb94fc78f-2tzvk}	dns server drained
+2025-10-15T03:29:14.293318Z	info	drain:proxy{wl=staging/httpbin-5bb94fc78f-2tzvk}	shutdown complete	component="outbound"
+2025-10-15T03:29:14.405399Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:15.000764Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="c0227b86-121f-483a-9894-9c9fb37fe376"
+2025-10-15T03:29:21.216910Z	info	access	connection complete	src.addr=192.168.89.141:44500 src.workload="curl-74c989df8d-vdjgs" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/curl" dst.addr=192.168.80.81:15008 dst.hbone_addr=10.100.194.43:8000 dst.service="httpbin.staging.svc.cluster.local" dst.workload="waypoint-8669cb56f-85wj6" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/waypoint" direction="outbound" bytes_sent=88 bytes_recv=481 duration="4ms"
+2025-10-15T03:29:25.244002Z	info	inpod::statemanager	pod received, starting proxy	uid="ae8e77bb-65e0-419f-bd44-6d326590baa4" name="httpbin-6f7f988d9-89bdk" namespace="staging"
+2025-10-15T03:29:25.244251Z	info	dns::server	starting local DNS server	address=localhost:15053 component="dns"
+2025-10-15T03:29:25.244439Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:29:25.244467Z	info	proxy::inbound_passthrough	listener established	address=[::]:15006 component="inbound plaintext" transparent=true
+2025-10-15T03:29:25.244562Z	info	proxy::outbound	listener established	address=[::]:15001 component="outbound" transparent=true
+2025-10-15T03:29:26.087507Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:26.216402Z	info	access	connection complete	src.addr=192.168.80.81:48502 src.workload="waypoint-8669cb56f-85wj6" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/waypoint" dst.addr=192.168.94.209:15008 dst.hbone_addr=192.168.94.209:8080 dst.service="httpbin.staging.svc.cluster.local" dst.workload="httpbin-7c777794dd-d4whn" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/httpbin" direction="inbound" bytes_sent=355 bytes_recv=165 duration="5001ms"
+2025-10-15T03:29:28.152627Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:28.322715Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="9215c227-647d-43fa-965a-3f5d93ab1666"
+2025-10-15T03:29:28.322782Z	info	drain:proxy{wl=staging/httpbin-7c777794dd-d4whn}	shutdown complete	component="outbound"
+2025-10-15T03:29:28.322818Z	info	drain:proxy{wl=staging/httpbin-7c777794dd-d4whn}	shutdown complete	component="inbound"
+2025-10-15T03:29:28.322833Z	info	dns::server:dns_proxy{wl=staging/httpbin-7c777794dd-d4whn}	shutting down the DNS server
+2025-10-15T03:29:28.322836Z	info	dns::server:dns_proxy{wl=staging/httpbin-7c777794dd-d4whn}	dns server drained
+2025-10-15T03:29:28.322867Z	info	drain:proxy{wl=staging/httpbin-7c777794dd-d4whn}	shutdown complete	component="inbound passthrough"
+2025-10-15T03:29:28.439132Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:29.059970Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="9215c227-647d-43fa-965a-3f5d93ab1666"
+2025-10-15T03:29:33.766101Z	info	access	connection complete	src.addr=192.168.89.141:49476 src.workload="curl-74c989df8d-vdjgs" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/curl" dst.addr=192.168.80.81:15008 dst.hbone_addr=10.100.194.43:8000 dst.service="httpbin.staging.svc.cluster.local" dst.workload="waypoint-8669cb56f-85wj6" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/waypoint" direction="outbound" bytes_sent=88 bytes_recv=481 duration="12ms"
+2025-10-15T03:29:36.743353Z	info	inpod::statemanager	pod received, starting proxy	uid="e24fcd5b-b0a7-4b77-a4fd-726b24d10bf0" name="httpbin-869647b794-xsf6c" namespace="staging"
+2025-10-15T03:29:36.743618Z	info	dns::server	starting local DNS server	address=localhost:15053 component="dns"
+2025-10-15T03:29:36.743827Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:29:36.743855Z	info	proxy::inbound_passthrough	listener established	address=[::]:15006 component="inbound plaintext" transparent=true
+2025-10-15T03:29:36.743945Z	info	proxy::outbound	listener established	address=[::]:15001 component="outbound" transparent=true
+2025-10-15T03:29:37.110613Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:38.765433Z	info	access	connection complete	src.addr=192.168.80.81:37010 src.workload="waypoint-8669cb56f-85wj6" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/waypoint" dst.addr=192.168.75.251:15008 dst.hbone_addr=192.168.75.251:8080 dst.service="httpbin.staging.svc.cluster.local" dst.workload="httpbin-6f7f988d9-89bdk" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/httpbin" direction="inbound" bytes_sent=355 bytes_recv=165 duration="5001ms"
+2025-10-15T03:29:39.178986Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:39.321954Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="ae8e77bb-65e0-419f-bd44-6d326590baa4"
+2025-10-15T03:29:39.322020Z	info	drain:proxy{wl=staging/httpbin-6f7f988d9-89bdk}	shutdown complete	component="inbound"
+2025-10-15T03:29:39.322050Z	info	drain:proxy{wl=staging/httpbin-6f7f988d9-89bdk}	shutdown complete	component="outbound"
+2025-10-15T03:29:39.322068Z	info	drain:proxy{wl=staging/httpbin-6f7f988d9-89bdk}	shutdown complete	component="inbound passthrough"
+2025-10-15T03:29:39.322090Z	info	dns::server:dns_proxy{wl=staging/httpbin-6f7f988d9-89bdk}	shutting down the DNS server
+2025-10-15T03:29:39.322092Z	info	dns::server:dns_proxy{wl=staging/httpbin-6f7f988d9-89bdk}	dns server drained
+2025-10-15T03:29:39.430115Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:40.073005Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="ae8e77bb-65e0-419f-bd44-6d326590baa4"
+2025-10-15T03:29:45.203731Z	info	access	connection complete	src.addr=192.168.89.141:41882 src.workload="curl-74c989df8d-vdjgs" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/curl" dst.addr=192.168.80.81:15008 dst.hbone_addr=10.100.194.43:8000 dst.service="httpbin.staging.svc.cluster.local" dst.workload="waypoint-8669cb56f-85wj6" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/waypoint" direction="outbound" bytes_sent=88 bytes_recv=481 duration="11ms"
+2025-10-15T03:29:48.770222Z	info	inpod::statemanager	pod received, starting proxy	uid="68a9d387-edb0-4c66-8f8e-d617bf57ac37" name="httpbin-649d77f99-vbwd2" namespace="staging"
+2025-10-15T03:29:48.770418Z	info	dns::server	starting local DNS server	address=localhost:15053 component="dns"
+2025-10-15T03:29:48.770558Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:29:48.770587Z	info	proxy::inbound_passthrough	listener established	address=[::]:15006 component="inbound plaintext" transparent=true
+2025-10-15T03:29:48.770611Z	info	proxy::outbound	listener established	address=[::]:15001 component="outbound" transparent=true
+2025-10-15T03:29:50.138199Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:50.196395Z	info	access	connection complete	src.addr=192.168.80.81:60680 src.workload="waypoint-8669cb56f-85wj6" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/waypoint" dst.addr=192.168.94.32:15008 dst.hbone_addr=192.168.94.32:8080 dst.service="httpbin.staging.svc.cluster.local" dst.workload="httpbin-869647b794-xsf6c" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/httpbin" direction="inbound" bytes_sent=355 bytes_recv=165 duration="5001ms"
+2025-10-15T03:29:53.228345Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:53.596345Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="e24fcd5b-b0a7-4b77-a4fd-726b24d10bf0"
+2025-10-15T03:29:53.596417Z	info	drain:proxy{wl=staging/httpbin-869647b794-xsf6c}	shutdown complete	component="outbound"
+2025-10-15T03:29:53.596473Z	info	drain:proxy{wl=staging/httpbin-869647b794-xsf6c}	shutdown complete	component="inbound"
+2025-10-15T03:29:53.596491Z	info	drain:proxy{wl=staging/httpbin-869647b794-xsf6c}	shutdown complete	component="inbound passthrough"
+2025-10-15T03:29:53.596588Z	info	dns::server:dns_proxy{wl=staging/httpbin-869647b794-xsf6c}	shutting down the DNS server
+2025-10-15T03:29:53.596594Z	info	dns::server:dns_proxy{wl=staging/httpbin-869647b794-xsf6c}	dns server drained
+2025-10-15T03:29:53.717353Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:54.146718Z	info	inpod::statemanager	pod delete request, shutting down proxy	uid="e24fcd5b-b0a7-4b77-a4fd-726b24d10bf0"
+2025-10-15T03:29:59.867060Z	info	access	connection complete	src.addr=192.168.89.141:54652 src.workload="curl-74c989df8d-vdjgs" src.namespace="staging" src.identity="spiffe://cluster.local/ns/staging/sa/curl" dst.addr=192.168.80.81:15008 dst.hbone_addr=10.100.194.43:8000 dst.service="httpbin.staging.svc.cluster.local" dst.workload="waypoint-8669cb56f-85wj6" dst.namespace="staging" dst.identity="spiffe://cluster.local/ns/staging/sa/waypoint" direction="outbound" bytes_sent=88 bytes_recv=306 duration="4ms"
+2025-10-15T03:27:35.114617Z	info	ztunnel	version: version.BuildInfo{Version:"75376478762decb918ea884603b2852b1568b015", GitRevision:"75376478762decb918ea884603b2852b1568b015", RustVersion:"1.87.0", BuildProfile:"release", BuildStatus:"Clean", IstioVersion:"1.27.0", CryptoProvider:"tls-aws-lc"}
+2025-10-15T03:27:35.114648Z	info	ztunnel	set file descriptor limits from 65536 to 1048576
+2025-10-15T03:27:35.114845Z	info	ztunnel	running with config: proxy: true
+dnsProxy: true
+windowSize: 4194304
+connectionWindowSize: 16777216
+frameSize: 1048576
+poolMaxStreamsPerConn: 100
+poolUnusedReleaseTimeout:
+  secs: 300
+  nanos: 0
+socks5Addr: null
+adminAddr: !Localhost
+- true
+- 15000
+statsAddr: !SocketAddr '[::]:15020'
+readinessAddr: !SocketAddr '[::]:15021'
+inboundAddr: '[::]:15008'
+inboundPlaintextAddr: '[::]:15006'
+outboundAddr: '[::]:15001'
+dnsProxyAddr: !Localhost
+- true
+- 15053
+illegalPorts:
+- 15006
+- 15001
+- 15008
+network: ''
+localNode: ip-192-168-33-133.eu-central-1.compute.internal
+proxyMode: Shared
+proxyWorkloadInformation: null
+clusterId: Kubernetes
+clusterDomain: cluster.local
+caAddress: https://istiod.istio-system.svc:15012
+caRootCert: !File ./var/run/secrets/istio/root-cert.pem
+altCaHostname: null
+xdsAddress: https://istiod.istio-system.svc:15012
+xdsRootCert: !File ./var/run/secrets/istio/root-cert.pem
+altXdsHostname: null
+preferedServiceNamespace: null
+secretTtl:
+  secs: 86400
+  nanos: 0
+xdsOnDemand: false
+fakeCa: false
+fakeSelfInbound: false
+selfTerminationDeadline:
+  secs: 25
+  nanos: 0
+proxyMetadata:
+  CLUSTER_ID: Kubernetes
+  ENABLE_HBONE: 'true'
+  ISTIO_VERSION: 1.27.0
+numWorkerThreads: 2
+requireOriginalSource: null
+proxyArgs: proxy ztunnel
+dnsResolverCfg:
+  domain: null
+  search:
+  - istio-system.svc.cluster.local
+  - svc.cluster.local
+  - cluster.local
+  - eu-central-1.compute.internal
+  name_servers:
+  - socket_addr: 10.100.0.10:53
+    protocol: udp
+    tls_dns_name: null
+    http_endpoint: null
+    trust_negative_responses: false
+    bind_addr: null
+  - socket_addr: 10.100.0.10:53
+    protocol: tcp
+    tls_dns_name: null
+    http_endpoint: null
+    trust_negative_responses: false
+    bind_addr: null
+dnsResolverOpts:
+  ndots: 5
+  timeout:
+    secs: 5
+    nanos: 0
+  attempts: 2
+  check_names: true
+  edns0: false
+  validate: false
+  ip_strategy: Ipv4AndIpv6
+  cache_size: 4096
+  use_hosts_file: Auto
+  positive_min_ttl: null
+  negative_min_ttl: null
+  positive_max_ttl: null
+  negative_max_ttl: null
+  num_concurrent_reqs: 2
+  preserve_intermediates: true
+  try_tcp_on_error: false
+  server_ordering_strategy: QueryStatistics
+  recursion_desired: true
+  avoid_local_udp_ports: []
+  os_port_selection: false
+  case_randomization: false
+  trust_anchor: null
+inpodUds: /var/run/ztunnel/ztunnel.sock
+inpodPortReuse: true
+packetMark: 1337
+socketConfig:
+  keepaliveTime:
+    secs: 180
+    nanos: 0
+  keepaliveInterval:
+    secs: 180
+    nanos: 0
+  keepaliveRetries: 9
+  keepaliveEnabled: true
+  userTimeoutEnabled: false
+xdsHeaders: []
+caHeaders: []
+localhostAppTunnel: true
+ztunnelIdentity: spiffe://cluster.local/ns/istio-system/sa/ztunnel
+ztunnelWorkload:
+  name: ztunnel-9v7fp
+  namespace: istio-system
+  serviceAccount: ztunnel
+ipv6Enabled: true
+
+2025-10-15T03:27:35.115734Z	info	hyper_util	listener established	address=[::]:15021 component="readiness"
+2025-10-15T03:27:35.115998Z	info	app	shared proxy mode - in-pod mode enabled
+2025-10-15T03:27:35.116011Z	info	proxyfactory	creating ztunnel self-proxy listener with identity: Spiffe { trust_domain: "cluster.local", namespace: "istio-system", service_account: "ztunnel" }
+2025-10-15T03:27:35.116122Z	info	proxy::inbound	listener established	address=[::]:15008 component="inbound" transparent=true
+2025-10-15T03:27:35.116386Z	info	app	Starting ztunnel inbound listener task
+2025-10-15T03:27:35.116561Z	info	hyper_util	listener established	address=127.0.0.1:15000 component="admin"
+2025-10-15T03:27:35.116749Z	info	hyper_util	listener established	address=[::]:15020 component="stats"
+2025-10-15T03:27:35.116837Z	info	readiness	Task 'dns proxy' complete (3.248425ms), still awaiting 3 tasks
+2025-10-15T03:27:35.116863Z	info	readiness	Task 'proxy' complete (3.275847ms), still awaiting 2 tasks
+2025-10-15T03:27:35.128952Z	info	xds::client:xds{id=1}	Stream established
+2025-10-15T03:27:35.129045Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=19 removes=0
+2025-10-15T03:27:35.129348Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.security.Authorization" size=0 removes=0
+2025-10-15T03:27:35.129407Z	info	readiness	Task 'state manager' complete (15.818975ms), still awaiting 1 tasks
+2025-10-15T03:27:35.129660Z	info	inpod::workloadmanager	handling new stream
+2025-10-15T03:27:35.130394Z	info	inpod::statemanager	received snapshot sent
+2025-10-15T03:27:35.130440Z	info	readiness	Task 'workload proxy manager' complete (16.851714ms), marking server ready
+2025-10-15T03:27:35.471124Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.security.Authorization" size=0 removes=0
+2025-10-15T03:27:35.571700Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:35.927401Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:37.012184Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.security.Authorization" size=0 removes=0
+2025-10-15T03:27:43.673268Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:48.937486Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:27:49.945672Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:28:19.113487Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:28:20.203716Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:28:24.122893Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:28:26.010385Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:11.058454Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:14.132405Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:14.405092Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:26.087310Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:28.152420Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:28.438949Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:37.110335Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:39.178724Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:39.429921Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
+2025-10-15T03:29:50.138363Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=1 removes=0
+2025-10-15T03:29:53.228052Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=2 removes=0
+2025-10-15T03:29:53.717203Z	info	xds::client:xds{id=1}	received response	type_url="type.googleapis.com/istio.workload.Address" size=0 removes=1
