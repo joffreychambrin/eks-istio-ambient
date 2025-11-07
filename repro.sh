@@ -8,7 +8,7 @@ NS=staging
 ISTIO_VERSION=1.27.3
 
 # --- create EKS cluster ---
-# eksctl create cluster --name "$CLUSTER" --region "$REGION" --nodes 2 --node-type t3.large
+eksctl create cluster --name "$CLUSTER" --region "$REGION" --nodes 2 --node-type t3.large
 
 # --- install Istio Ambient ---
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=$ISTIO_VERSION sh -
